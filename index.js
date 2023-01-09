@@ -1,11 +1,14 @@
-// Enter the team manager's name, employee ID, email address, and office number
+// Enter the team manager’s name, employee ID, email address, and office number
 // Menu to add engineer/intern/or finish building team
-// Select engineer: I am prompted to enter the engineer's name, ID, email, and GitHub username,
+// Select engineer: I am prompted to enter the engineer’s name, ID, email, and GitHub username,
 // I am taken back to the menu
-// Select intern: enter the intern's name, ID, email, and school,
+// Select intern: enter the intern’s name, ID, email, and school,
 // Select Finish
 // Generate HTML File
 const inquirer = require("inquirer");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const fs = require("fs");
 const team = [];
 
@@ -40,8 +43,9 @@ function createManager() {
     .then((answers) => {
       console.log(answers);
       // Create a new Manager Object from the manager class.
-
+      const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerNumber);
       // Push manager on to team array.
+      team.push(manager);
       createTeam();
     });
 }
@@ -76,8 +80,10 @@ function createEngineer() {
     .then((answers) => {
       console.log(answers);
       // Create a new Manager Object from the manager class.
-
-      // Push manager on to team array.
+      const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGithub);
+      // Push engineer on to team array.
+      team.push(engineer);
+      // Push engineer on to team array.
       createTeam();
     });
 }
@@ -112,8 +118,10 @@ function createIntern() {
     .then((answers) => {
       console.log(answers);
       // Create a new Manager Object from the manager class.
-
-      // Push manager on to team array.
+      const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
+      // Push intern on to team array.
+      team.push(intern);
+      // Push intern on to team array.
       createTeam();
     });
 }
@@ -128,7 +136,6 @@ function createTeam() {
       },
     ])
     .then((answers) => {
-      console.log(answers);
       if (answers.mainMenu === "Engineer") {
         createEngineer();
       } else if (answers.mainMenu === "Intern") {
@@ -142,7 +149,41 @@ function createTeam() {
     });
 }
 // Generate HTML
-const generateHTML = (team) => `<!DOCTYPE html>
+const generateHTML = (team) => {
+  const managerTemplate = `<div class="manager-card">
+<div>${team[0].getName()} </div>
+<div>${team[0].getId()} </div>
+<div>${team[0].getEmail()} </div>
+<div>${team[0].getOfficeNumber()} </div> 
+</div>`;
+
+  const engineers = team.filter((employee) => employee.getRole() === "Engineer");
+
+  let engineerTemplate = "";
+
+  engineers.forEach((engineer) => {
+    engineerTemplate += `<div class="engineer-card"> 
+<div>${engineer.getName()} </div>
+<div>${engineer.getId()} </div>
+<div>${engineer.getEmail()} </div>
+<div> <a href="https://github.com/${engineer.getGithub()}" target="_blank"> ${engineer.getGithub()} </a> </div>
+</div>`;
+  });
+
+  const interns = team.filter((employee) => employee.getRole() === "Intern");
+
+  let internTemplate = "";
+
+  interns.forEach((intern) => {
+    internTemplate += `<div class="intern-card"> 
+<div>${intern.getName()} </div>
+<div>${intern.getId()} </div>
+<div>${intern.getEmail()} </div>
+<div>${intern.getSchool()} </div>
+</div>`;
+  });
+
+  const document = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -151,12 +192,13 @@ const generateHTML = (team) => `<!DOCTYPE html>
     <title>Team Profile Builder</title>
 </head>
 <body>
-<div>${managerName} </div>
-<div>${managerID} </div>
-<div>${managerEmail} </div>
-<div>${managerNumber} </div>
+${managerTemplate}
+${engineerTemplate}
+${internTemplate}
 </body>
 </html>`;
+  return document;
+};
 // Ask Questions to Populate HTML
 
 createManager();
