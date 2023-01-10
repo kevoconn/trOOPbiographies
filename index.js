@@ -165,7 +165,7 @@ const generateHTML = (team) => {
     engineerTemplate += `<div class="engineer-card"> 
 <div>${engineer.getName()} </div>
 <div>${engineer.getId()} </div>
-<div>${engineer.getEmail()} </div>
+<div><a href = ${engineer.getEmail()}">${engineer.getEmail()}</a> </div>
 <div> <a href="https://github.com/${engineer.getGithub()}" target="_blank"> ${engineer.getGithub()} </a> </div>
 </div>`;
   });
