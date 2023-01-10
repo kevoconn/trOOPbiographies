@@ -153,7 +153,7 @@ const generateHTML = (team) => {
   const managerTemplate = `<div class="manager-card">
 <div>${team[0].getName()} </div>
 <div>${team[0].getId()} </div>
-<div>${team[0].getEmail()} </div>
+<div><a href = ${team[0].getEmail()}">${team[0].getEmail()}</a> </div>
 <div>${team[0].getOfficeNumber()} </div> 
 </div>`;
 
@@ -178,7 +178,7 @@ const generateHTML = (team) => {
     internTemplate += `<div class="intern-card"> 
 <div>${intern.getName()} </div>
 <div>${intern.getId()} </div>
-<div>${intern.getEmail()} </div>
+<div><a href = ${intern.getEmail()}">${intern.getEmail()}</a> </div>
 <div>${intern.getSchool()} </div>
 </div>`;
   });
