@@ -39,7 +39,7 @@ This application is covered under the MIT license
 
     ![Screenshot (1)](https://user-images.githubusercontent.com/114611839/211864573-e9ab9ad7-504d-4c4e-8845-32f626d4be94.png)
     
-    ![Screenshot (18)](https://user-images.githubusercontent.com/114611839/211864933-476fa508-cd3d-40c2-a8b8-c0b232b58170.png)
+    ![Screenshot (2)](https://user-images.githubusercontent.com/114611839/211864933-476fa508-cd3d-40c2-a8b8-c0b232b58170.png)
 
 
 
