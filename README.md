@@ -32,8 +32,14 @@ This application is covered under the MIT license
 
 # Demo
 
+    ![Video link](https://watch.screencastify.com/v/4KP1QtM4PSU8r2uohsXH)
 
 
 # Screenshot
+
+    ![Screenshot (1)](https://user-images.githubusercontent.com/114611839/211864573-e9ab9ad7-504d-4c4e-8845-32f626d4be94.png)
+    
+    ![Screenshot (18)](https://user-images.githubusercontent.com/114611839/211864933-476fa508-cd3d-40c2-a8b8-c0b232b58170.png)
+
 
 
