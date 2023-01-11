@@ -151,9 +151,10 @@ function createTeam() {
 // Generate HTML
 const generateHTML = (team) => {
   const managerTemplate = `<div class="manager-card">
+  <h3> Manager </h3>
 <div>${team[0].getName()} </div>
 <div>${team[0].getId()} </div>
-<div><a href = ${team[0].getEmail()}">${team[0].getEmail()}</a> </div>
+<div><a href = "mailto:${team[0].getEmail()}">${team[0].getEmail()}</a> </div>
 <div>${team[0].getOfficeNumber()} </div> 
 </div>`;
 
@@ -163,9 +164,10 @@ const generateHTML = (team) => {
 
   engineers.forEach((engineer) => {
     engineerTemplate += `<div class="engineer-card"> 
+    <h3> Engineer </h3>
 <div>${engineer.getName()} </div>
 <div>${engineer.getId()} </div>
-<div><a href = ${engineer.getEmail()}">${engineer.getEmail()}</a> </div>
+<div><a href = "mailto:${engineer.getEmail()}">${engineer.getEmail()}</a> </div>
 <div> <a href="https://github.com/${engineer.getGithub()}" target="_blank"> ${engineer.getGithub()} </a> </div>
 </div>`;
   });
@@ -176,9 +178,10 @@ const generateHTML = (team) => {
 
   interns.forEach((intern) => {
     internTemplate += `<div class="intern-card"> 
+    <h3> Intern </h3>
 <div>${intern.getName()} </div>
 <div>${intern.getId()} </div>
-<div><a href = ${intern.getEmail()}">${intern.getEmail()}</a> </div>
+<div><a href = "mailto:${intern.getEmail()}">${intern.getEmail()}</a> </div>
 <div>${intern.getSchool()} </div>
 </div>`;
   });
@@ -189,9 +192,11 @@ const generateHTML = (team) => {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Profile Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <title>trOOPbiographies</title>
 </head>
 <body>
+<h1 class="heading"> Team Profile </h1>
 ${managerTemplate}
 ${engineerTemplate}
 ${internTemplate}
