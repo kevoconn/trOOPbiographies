@@ -32,6 +32,7 @@ This application is covered under the MIT license
 
 # Demo
 
+![screenshot of example page generated with application](https://watch.screencastify.com/v/4KP1QtM4PSU8r2uohsXH)
 
 
 
